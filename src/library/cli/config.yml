@@ -1,0 +1,40 @@
+name: .
+version: "1.0"
+subcommands:
+  - translate:
+      about: Show translated text from clipboard as notification
+      args:
+        - primary-lang:
+            short: p
+            help: Target language to translate
+            required: true
+            takes_value: true
+            index: 1
+        - secondary-lang:
+            short: s
+            long: secondary-lang
+            help: Language used to fallback translation (Used as source language for 'MyMemory' translator type)
+            required: false
+            takes_value: true
+            index: 2
+        - translator:
+            short: t
+            long: translator
+            help: "Translator used. Available translators: 'Google', 'MyMemory'"
+            required: false
+            takes_value: true
+            index: 3
+        - not-notify:
+            short: n
+            long: not-notify
+            help: Do not send the system notification with translated text
+            required: false
+        - selected:
+            long: selected
+            help: Translate selected text instead of text from clipboard. Requires 'xsel' module on the system to be installed
+            required: false
+        - copy:
+            short: c
+            long: copy
+            help: Copy translated text to clipboard
+            required: false
